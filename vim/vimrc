@@ -1,0 +1,10 @@
+syntax on
+
+" Setting tabstops
+set ts=4
+
+" Setting shift wdti (indexing)
+set sw=4
+set expandtab
+set ruler
+set number
