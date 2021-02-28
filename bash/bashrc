@@ -121,6 +121,9 @@ if [ $TILIX_ID ] || [ $VTE_VERSION ] ; then source /etc/profile.d/vte.sh; fi # U
 # python3 wheel path
 export PATH="$HOME/.local/bin:$PATH"
 
+# PRIMARY DISPLAY NAME
+export PRIMARY_DISPLAY="$(xrandr | grep primary | cut -d ' ' -f -1)"
+
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
 __conda_setup="$('/home/conrado/Miniconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
@@ -136,3 +139,9 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
+# Setting SPARK ENV Variables
+export SPARK_HOME="/opt/spark"
+export PATH="$SPARK_HOME/bin:$PATH"
+export PYSPARK_PYTHON="$CONDA_PYTHON_EXE"
+export JAVA_HOME="/opt/jdk-8u281/jdk1.8.0_281"
+export JRE_HOME="/opt/jdk-8u281/jdk1.8.0_281/jre"
