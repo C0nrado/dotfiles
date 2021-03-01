@@ -121,8 +121,10 @@ if [ $TILIX_ID ] || [ $VTE_VERSION ] ; then source /etc/profile.d/vte.sh; fi # U
 # python3 wheel path
 export PATH="$HOME/.local/bin:$PATH"
 
-# PRIMARY DISPLAY NAME
+# MY CUSTOM ENV VARIABLES 
 export PRIMARY_DISPLAY="$(xrandr | grep primary | cut -d ' ' -f -1)"
+export MY_SCRIPTS="$HOME/Documents/dotfiles/scripts"
+export MY_CUSTOM_TWEAKS="$HOME/Documents/dotfiles/codes/"
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
@@ -145,3 +147,13 @@ export PATH="$SPARK_HOME/bin:$PATH"
 export PYSPARK_PYTHON="$CONDA_PYTHON_EXE"
 export JAVA_HOME="/opt/jdk-8u281/jdk1.8.0_281"
 export JRE_HOME="/opt/jdk-8u281/jdk1.8.0_281/jre"
+
+# Bash Git Prompt customization
+# This code is intended to work with the contents of the github repository available in github.com/magicmonty/bash-git-prompt
+
+if [ -f "$MY_CUSTOM_TWEAKS/bash-git-prompt/gitprompt.sh" ]; then
+    GIT_PROMPT_ONLY_IN_REPO=1
+    GIT_PROMPT_END="$ "
+    GIT_PROMPT_THEME=Single_line_Dark
+    source $MY_CUSTOM_TWEAKS/bash-git-prompt/gitprompt.sh
+fi
