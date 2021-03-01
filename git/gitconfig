@@ -3,3 +3,5 @@
 [user]
 	name = Conrado
 	email = souza.conrado@gmail.com
+[color]
+	ui = true
