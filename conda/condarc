@@ -1,0 +1,7 @@
+# Prioritazing channels
+channels:
+  - conda-forge
+  - defaults
+
+# Forcing conda not to self activate
+auto_activate_base: false
