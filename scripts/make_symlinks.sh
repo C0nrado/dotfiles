@@ -9,7 +9,7 @@ ln -v $BASE_DIR/bash/aliases ~/.bash_aliases
 ln -v $BASE_DIR/bash/bashrc ~/.bashrc
 
 # Conda
-if [ -z $(which conda) ]; then
+if [ ! -z $(which conda) ]; then
     ln -v $BASE_DIR/conda/condarc ~/.condarc
 fi
 
@@ -25,6 +25,10 @@ fi
 
 # Ranger
 if [ ! -z $(which ranger) ]; then
+    if [ ! -d ~/.config/ranger ]; then
+        echo "Generating rc.conf for ranger (default)."
+        ranger --copy-config=rc
+    fi
     ln -v $BASE_DIR/ranger/conf ~/.config/ranger/rc.conf
 fi
 
