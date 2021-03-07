@@ -145,8 +145,8 @@ unset __conda_setup
 export SPARK_HOME="/opt/spark"
 export PATH="$SPARK_HOME/bin:$PATH"
 export PYSPARK_PYTHON="$CONDA_PYTHON_EXE"
-export JAVA_HOME="/opt/jdk-8u281/jdk1.8.0_281"
-export JRE_HOME="/opt/jdk-8u281/jdk1.8.0_281/jre"
+export JAVA_HOME="/opt/jdk1.8.0_281"
+#export JRE_HOME="/opt/jdk-8u281/jdk1.8.0_281/jre"
 
 # Bash Git Prompt customization
 # This code is intended to work with the contents of the github repository available in github.com/magicmonty/bash-git-prompt
