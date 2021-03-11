@@ -145,7 +145,7 @@ unset __conda_setup
 export SPARK_HOME="/opt/spark"
 export PATH="$SPARK_HOME/bin:$PATH"
 export PYSPARK_PYTHON="$CONDA_PYTHON_EXE"
-export JAVA_HOME="/opt/jdk1.8.0_281"
+export JRE_HOME="/opt/jre1.8.0_281"
 #export JRE_HOME="/opt/jdk-8u281/jdk1.8.0_281/jre"
 
 # Bash Git Prompt customization
@@ -157,3 +157,6 @@ if [ -f "$MY_CUSTOM_TWEAKS/bash-git-prompt/gitprompt.sh" ]; then
     GIT_PROMPT_THEME=Single_line_Dark
     source $MY_CUSTOM_TWEAKS/bash-git-prompt/gitprompt.sh
 fi
+
+# This add $HOME/scripts to $PATH
+export PATH=$HOME/scripts:$PATH

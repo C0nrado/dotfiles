@@ -4,6 +4,28 @@
 alias ln="ln -fns"
 BASE_DIR="$HOME/Documents/dotfiles"
 
+# Scripts directory -> $HOME/scripts
+# Check if directory exists
+
+bashrc_append=$(cat <<- OEM
+# Scripts directory is added (link) to home
+# This add \$HOME/scripts to \$PATH
+export PATH=\$HOME/scripts:\$PATH
+OEM
+) 
+
+if [ ! -d "$HOME/scripts" ]; then
+    ln -v $BASE_DIR/scripts $HOME/scripts
+
+    # check if ~/.bashrc has been modified already
+    if [ "$(grep -c "$bashrc_append" ~/.bashrc)" = 0 ]; then
+        echo 'Lines added to ~/.bashrc:'
+        echo '-----------------------------------'
+        printf "\n$bashrc_append\n" | tee -a ~/.bashrc
+        echo '-----------------------------------'
+    fi
+fi
+
 # Bash files
 ln -v $BASE_DIR/bash/aliases ~/.bash_aliases
 ln -v $BASE_DIR/bash/bashrc ~/.bashrc
