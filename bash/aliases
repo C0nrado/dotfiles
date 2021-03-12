@@ -1,3 +1,9 @@
-# alias for VI editor
-# alias vim=vi
+# aliases for calcurse querying
+if [ ! -z $(which calcurse) ]; then
+    alias todo="calcurse -t"
+    alias apointments="calcurse --day 3"
+fi
 
+if [ -e $HOME/scripts/viewcal.sh ]; then
+    alias agenda="$HOME/scripts/viewcal.sh"
+fi

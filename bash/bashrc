@@ -122,8 +122,13 @@ if [ $TILIX_ID ] || [ $VTE_VERSION ] ; then source /etc/profile.d/vte.sh; fi # U
 export PATH="$HOME/.local/bin:$PATH"
 
 # MY CUSTOM ENV VARIABLES 
+[ "$(which vim)" ] && export EDITOR="vim"
+[ "$(which firefox)" ] && export BROWSER="firefox"
+[ "$(which spotify)" ]  && export MUSIC="spotify"
+[ "$(which mailspring)" ] && export MAIL="mailspring"
+[ -d "$HOME/scripts" ] && export MY_SCRIPTS="$HOME/scripts" && export PATH=$MY_SCRIPTS:$PATH
+
 export PRIMARY_DISPLAY="$(xrandr | grep primary | cut -d ' ' -f -1)"
-export MY_SCRIPTS="$HOME/Documents/dotfiles/scripts"
 export MY_CUSTOM_TWEAKS="$HOME/Documents/dotfiles/codes/"
 
 # >>> conda initialize >>>
@@ -159,4 +164,3 @@ if [ -f "$MY_CUSTOM_TWEAKS/bash-git-prompt/gitprompt.sh" ]; then
 fi
 
 # This add $HOME/scripts to $PATH
-export PATH=$HOME/scripts:$PATH

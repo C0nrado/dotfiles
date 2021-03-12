@@ -1,0 +1,7 @@
+#
+# DMENU RC CONF FILE
+#
+
+DMENU_SF="#40bd72"
+
+DMENU_OPTIONS="-sf $DMENU_SF"

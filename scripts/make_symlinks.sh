@@ -30,6 +30,11 @@ fi
 ln -v $BASE_DIR/bash/aliases ~/.bash_aliases
 ln -v $BASE_DIR/bash/bashrc ~/.bashrc
 
+# Dmenu
+if [ ! -z $(which dmenu) ]; then
+    ln -n $BASE_DIR/dmenu/dmenurc ~/.dmenurc
+fi
+
 # Conda
 if [ ! -z $(which conda) ]; then
     ln -v $BASE_DIR/conda/condarc ~/.condarc
@@ -48,10 +53,12 @@ fi
 # Ranger
 if [ ! -z $(which ranger) ]; then
     if [ ! -d ~/.config/ranger ]; then
-        echo "Generating rc.conf for ranger (default)."
+        echo "Generating conf for ranger (default)."
         ranger --copy-config=rc
     fi
     ln -v $BASE_DIR/ranger/conf ~/.config/ranger/rc.conf
+    ln -v $BASE_DIR/ranger/rifle.conf ~/.config/ranger/rifle.conf
+    ln -v $BASE_DIR/ranger/scope.sh ~/.config/ranger/scope.sh
 fi
 
 # Conda startup default_profile
